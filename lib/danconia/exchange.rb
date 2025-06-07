@@ -21,7 +21,7 @@ module Danconia
     # Returns the original rates plus the inverted ones, to simplify rate finding logic.
     # Also wraps the pair strings into Pair objects.
     def direct_and_inverted_rates opts
-      rates(opts).each_with_object({}) do |(pair_str, rate), rs|
+      rates(**opts).each_with_object({}) do |(pair_str, rate), rs|
         pair = Pair.parse(pair_str)
         rs[pair] = rate
         rs[pair.invert] ||= 1.0 / rate

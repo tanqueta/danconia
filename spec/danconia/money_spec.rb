@@ -166,7 +166,7 @@ module Danconia
       context 'opts' do
         let(:exchange) do
           Class.new(Exchange) do
-            def rates opts
+            def rates **opts
               case opts[:type]
               when 'divisa' then {'USDARS' => 7}
               when 'billete' then {'USDARS' => 8}

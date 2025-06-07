@@ -50,7 +50,7 @@ module Danconia
     def exchange_to other_currency, **opts
       opts = @exchange_opts.merge(opts)
       other_currency = other_currency.presence && Currency.find(other_currency) || currency
-      rate = opts[:exchange].rate currency.code, other_currency.code, opts.except(:exchange)
+      rate = opts[:exchange].rate currency.code, other_currency.code, **opts.except(:exchange)
       clone_with amount * rate, other_currency, opts
     end
 
@@ -98,7 +98,7 @@ module Danconia
 
     def amount_exchanged_to_this_currency other
       if other.is_a? Money
-        other.exchange_to(currency, @exchange_opts).amount
+        other.exchange_to(currency, **@exchange_opts).amount
       else
         other
       end

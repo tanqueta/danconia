@@ -1,5 +1,5 @@
 module Kernel
-  def Money *args
-    Danconia::Money.new *args
+  def Money(*args, **kwargs)
+    Danconia::Money.new(*args, **kwargs)
   end
 end
