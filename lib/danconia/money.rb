@@ -1,6 +1,7 @@
 require 'bigdecimal'
 require 'danconia/errors/exchange_rate_not_found'
 require 'danconia/serializable'
+require_relative 'money_serialization_patch'
 
 module Danconia
   class Money
